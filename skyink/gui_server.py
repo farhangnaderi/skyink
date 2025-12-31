@@ -293,20 +293,32 @@ def download(filename):
 
 def main():
     """Main entry point for GUI server."""
+    import argparse
     import os
-    port = int(os.environ.get('PORT', 5000))
-    debug = os.environ.get('FLASK_ENV') != 'production'
+
+    parser = argparse.ArgumentParser(description='SkyInk Web GUI Server')
+    parser.add_argument('-p', '--port', type=int, default=int(os.environ.get('PORT', 5000)),
+                        help='Port to run the server on (default: 5000)')
+    parser.add_argument('--host', default='0.0.0.0',
+                        help='Host to bind to (default: 0.0.0.0)')
+    parser.add_argument('--no-debug', action='store_true',
+                        help='Disable debug mode')
+    args = parser.parse_args()
+
+    debug = not args.no_debug and os.environ.get('FLASK_ENV') != 'production'
 
     print("=" * 50)
-    print("Text-to-Drone-Path GUI Server")
+    print("SkyInk - Aerial Skywriting GUI")
     print("=" * 50)
     print("\nStarting server...")
-    print(f"Port: {port}")
+    print(f"Host: {args.host}")
+    print(f"Port: {args.port}")
     print(f"Debug mode: {debug}")
+    print(f"\nOpen your browser to: http://localhost:{args.port}")
     print("\nPress Ctrl+C to stop the server")
     print("=" * 50)
 
-    app.run(host='0.0.0.0', port=port, debug=debug)
+    app.run(host=args.host, port=args.port, debug=debug)
 
 
 if __name__ == '__main__':

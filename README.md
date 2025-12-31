@@ -35,12 +35,20 @@ pip install -e .
 ### Option 1: Web GUI
 
 ```bash
-# Start the web interface
+# Start the web interface (default port 5000)
 skyink-gui
 
-# Open browser to http://localhost:5000
+# Or specify a custom port
+skyink-gui -p 8080
+
+# Open browser to http://localhost:5000 (or your custom port)
 # Preview on map, adjust parameters, generate .plan file
 ```
+
+**GUI Options:**
+- `-p, --port PORT` - Port to run the server on (default: 5000)
+- `--host HOST` - Host to bind to (default: 0.0.0.0)
+- `--no-debug` - Disable debug mode
 
 ### Option 2: Command Line
 
