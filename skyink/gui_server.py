@@ -301,11 +301,11 @@ def main():
                         help='Port to run the server on (default: 5000)')
     parser.add_argument('--host', default='0.0.0.0',
                         help='Host to bind to (default: 0.0.0.0)')
-    parser.add_argument('--no-debug', action='store_true',
-                        help='Disable debug mode')
+    parser.add_argument('--debug', action='store_true',
+                        help='Enable debug mode (disabled by default)')
     args = parser.parse_args()
 
-    debug = not args.no_debug and os.environ.get('FLASK_ENV') != 'production'
+    debug = args.debug or os.environ.get('FLASK_ENV') == 'development'
 
     print("=" * 50)
     print("SkyInk - Aerial Skywriting GUI")

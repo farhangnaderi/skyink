@@ -2,6 +2,16 @@
 
 Convert text to autonomous flight missions for PX4, ArduPilot, and other MAVLink-compatible autopilots. Uses Hershey stroke fonts, Douglas-Peucker path simplification, and GPS coordinate transformation.
 
+## Screenshots
+
+### Web Interface
+![SkyInk Web GUI](images/gui-screenshot.png)
+*Interactive web interface with real-time map preview*
+
+### Generated Flight Path
+![Flight Path](images/flight-path.png)
+*Example mission visualization*
+
 ## Features
 
 - **Hershey Stroke Fonts**: Single-line glyphs that eliminate the need for complex centerline extraction
@@ -48,7 +58,7 @@ skyink-gui -p 8080
 **GUI Options:**
 - `-p, --port PORT` - Port to run the server on (default: 5000)
 - `--host HOST` - Host to bind to (default: 0.0.0.0)
-- `--no-debug` - Disable debug mode
+- `--debug` - Enable debug mode (disabled by default for production use)
 
 ### Option 2: Command Line
 
