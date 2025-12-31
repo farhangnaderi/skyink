@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Setup configuration for skyink package."""
 
-from setuptools import setup
+from setuptools import setup, find_packages
 from pathlib import Path
 
 # Read README for long description
@@ -10,7 +10,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="skyink",
-    version="1.0.0",
+    version="1.0.1",
     author="skyink contributors",
     author_email="info@farhangnaderi.com",
     description="Convert text to PX4 drone flight paths using Hershey stroke fonts",
@@ -21,17 +21,7 @@ setup(
         "Bug Reports": "https://github.com/farhangnaderi/skyink/issues",
         "Source": "https://github.com/farhangnaderi/skyink",
     },
-    py_modules=[
-        "text_to_drone_path",
-        "gui_server",
-        "font_extractor",
-        "path_simplifier",
-        "coord_transformer",
-        "path_transitions",
-        "mission_generator",
-        "format_exporters",
-        "visualize_path"
-    ],
+    packages=find_packages(),
     include_package_data=True,
     package_data={
         "": ["templates/*.html", "static/*"],
@@ -76,8 +66,8 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "skyink=text_to_drone_path:main",
-            "skyink-gui=gui_server:main",
+            "skyink=skyink.text_to_drone_path:main",
+            "skyink-gui=skyink.gui_server:main",
         ],
     },
     keywords="drone px4 mavlink qgroundcontrol mission-planning path-planning fonts trajectory",

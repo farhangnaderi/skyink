@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "skyink"
-version = "1.0.0"
+version = "1.0.1"
 description = "Convert text to PX4 drone flight paths using Hershey stroke fonts"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -58,22 +58,11 @@ Repository = "https://github.com/farhangnaderi/skyink"
 "Bug Tracker" = "https://github.com/farhangnaderi/skyink/issues"
 
 [project.scripts]
-skyink = "text_to_drone_path:main"
-skyink-gui = "gui_server:main"
+skyink = "skyink.text_to_drone_path:main"
+skyink-gui = "skyink.gui_server:main"
 
 [tool.setuptools]
-py-modules = [
-    "text_to_drone_path",
-    "gui_server",
-    "font_extractor",
-    "path_simplifier",
-    "coord_transformer",
-    "path_transitions",
-    "mission_generator",
-    "format_exporters",
-    "visualize_path"
-]
 include-package-data = true
 
 [tool.setuptools.package-data]
-"*" = ["templates/*.html", "static/*"]
+skyink = ["templates/*.html", "static/*"]
