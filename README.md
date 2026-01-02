@@ -69,21 +69,6 @@ skyink "HELLO" --lat 47.397 --lon 8.545 --alt 30
 # Upload HELLO.plan to QGroundControl
 ```
 
-### Option 3: Development Mode (from source)
-
-```bash
-# Clone and install in development mode
-git clone https://github.com/farhangnaderi/skyink.git
-cd skyink
-pip install -e .[gui]
-
-# Run GUI
-python -m skyink.gui_server
-
-# Or run CLI
-python -m skyink.text_to_drone_path "HELLO" --lat 47.397 --lon 8.545
-```
-
 ⚠️ **Always test in PX4 SITL simulation before hardware flight**
 
 ### Upgrading
@@ -115,23 +100,6 @@ skyink/
 ├── QUICKSTART_GUI.md         # GUI quick start guide
 ├── GUI_GUIDE.md              # Full GUI documentation
 └── *.{plan,kml,csv}          # Generated mission files
-```
-
-## Installation
-
-### Requirements
-- Python 3.8+
-- Virtual environment (recommended)
-
-### Setup
-
-```bash
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
 ```
 
 ## Usage
